@@ -1,0 +1,9 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.also.lesson">
+
+    /
+    <application>
+        <activity android:name=".LessonActivity"
+            android:theme="@style/LessonTheme"/>
+    </application>
+</manifest>
