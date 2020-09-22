@@ -20,8 +20,19 @@ import java.util.*
  */
 class CodeView(context: Context, attrs: AttributeSet?) : AppCompatTextView(context, attrs) {
     var paint = Paint()
+    var codeList:Array<String> = arrayOf(
+        "kotlin",
+        "android",
+        "java",
+        "http",
+        "https",
+        "okhttp",
+        "retrofit",
+        "tcp/ip"
+    )
 
     init {
+
         setTextSize(TypedValue.COMPLEX_UNIT_SP, 18f)
         gravity=Gravity.CENTER
         setBackgroundColor(getContext().getColor(R.color.colorPrimary))
@@ -36,16 +47,7 @@ class CodeView(context: Context, attrs: AttributeSet?) : AppCompatTextView(conte
     }
     constructor(context: Context) : this(context, null)
 
-    var codeList = arrayOf(
-        "kotlin",
-        "android",
-        "java",
-        "http",
-        "https",
-        "okhttp",
-        "retrofit",
-        "tcp/ip"
-    )
+
 
     fun updateCode(){
         val random= Random().nextInt(codeList.size)

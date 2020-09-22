@@ -11,11 +11,11 @@ import android.content.Context
  */
 class BaseApplication : Application() {
 
-    private lateinit var currentApplication:Context
-
     companion object{
+        private lateinit var currentApplication:Context
+
         fun currentApplication():Context{
-            return BaseApplication().currentApplication
+            return currentApplication
         }
     }
 

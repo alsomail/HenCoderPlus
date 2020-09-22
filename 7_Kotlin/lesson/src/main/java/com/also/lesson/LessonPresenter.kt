@@ -24,7 +24,7 @@ class LessonPresenter(var activity: LessonActivity) {
             override fun onSuccess(entity: List<Lesson>) {
                 this@LessonPresenter.lessons=entity
                 activity.runOnUiThread {
-//                    activity.show
+                    activity.showResult(lessons)
                 }
             }
 
