@@ -18,7 +18,7 @@ import java.util.*
  * 邮箱：galsomail@163.com
  * 创建时间：2020/9/17 10:41 PM
  */
-class CodeView(context: Context, attrs: AttributeSet?) : AppCompatTextView(context, attrs) {
+class CodeView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) : AppCompatTextView(context, attrs) {
     var paint = Paint()
     var codeList:Array<String> = arrayOf(
         "kotlin",
@@ -41,13 +41,10 @@ class CodeView(context: Context, attrs: AttributeSet?) : AppCompatTextView(conte
         paint.isAntiAlias=true
         paint.style= Paint.Style.STROKE
         paint.color = getContext().getColor(R.color.colorAccent)
-        paint.strokeWidth = dp2px(6f)
+        paint.strokeWidth = 6f.dp2px()
 
         updateCode()
     }
-    constructor(context: Context) : this(context, null)
-
-
 
     fun updateCode(){
         val random= Random().nextInt(codeList.size)

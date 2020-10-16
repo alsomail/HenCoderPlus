@@ -11,12 +11,12 @@ import com.also.base.core.BaseApplication
  * 邮箱：galsomail@163.com
  * 创建时间：2020/9/17 10:25 PM
  */
-private var context = BaseApplication.currentApplication()
+private var context = BaseApplication.currentApplication
 
 private var SP =
     context.getSharedPreferences(context.getString(R.string.app_name), Context.MODE_PRIVATE)
 
 fun save(key: String, value: String) = SP.edit().putString(key, value).apply()
 
-fun get(key: String): String? = SP.getString(key, null)
+fun get(key: String) = SP.getString(key, "")!!
 

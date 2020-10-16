@@ -8,7 +8,6 @@ import android.widget.Button
 import android.widget.EditText
 import com.also.a7_kotlin.entity.User
 import com.also.a7_kotlin.widget.CodeView
-import com.also.base.core.BaseApplication
 import com.also.base.core.utils.get
 import com.also.base.core.utils.save
 import com.also.base.core.utils.toast

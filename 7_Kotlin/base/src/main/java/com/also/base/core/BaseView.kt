@@ -7,5 +7,5 @@ package com.also.base.core
  * 创建时间：2020/9/18 9:22 PM
  */
 public interface BaseView<T>{
-    fun getPresenter():T
+    val presenter :T
 }

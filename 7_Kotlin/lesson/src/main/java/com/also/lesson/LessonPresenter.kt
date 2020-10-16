@@ -38,13 +38,7 @@ class LessonPresenter(var activity: LessonActivity) {
     }
 
     fun showPlayback(){
-        var playbackLessons=ArrayList<Lesson>()
-        for (lesson in lessons) {
-            if (lesson.state == Lesson.State.PLAYBACK) {
-                playbackLessons.add(lesson)
-            }
-        }
-        activity.showResult(playbackLessons)
+        activity.showResult(lessons.filter { it.state == Lesson.State.PLAYBACK })
     }
 
 }

@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.also.base.core.BaseView
+import com.also.base.core.utils.get
+import com.also.base.core.utils.save
 import com.also.lesson.entity.Lesson
 
 /**
@@ -19,11 +21,18 @@ import com.also.lesson.entity.Lesson
  * 创建时间：2020/9/18 12:35 AM
  */
 class LessonActivity:AppCompatActivity(), BaseView<LessonPresenter>,Toolbar.OnMenuItemClickListener {
-    private var lessonPresenter = LessonPresenter(this)
 
-    override fun getPresenter(): LessonPresenter {
-       return lessonPresenter
+    override val presenter: LessonPresenter by lazy {
+        LessonPresenter(this)
     }
+
+    var token:String
+        set(value){
+            save("token", value)
+        }
+        get() {
+            return get("token")
+        }
 
     private var lessonAdapter = LessonAdapter()
 
@@ -44,15 +53,15 @@ class LessonActivity:AppCompatActivity(), BaseView<LessonPresenter>,Toolbar.OnMe
 
         refreshLayout = findViewById(R.id.swipe_refresh_layout)
         refreshLayout.setOnRefreshListener {
-            getPresenter().fetchData()
+            presenter.fetchData()
         }
         refreshLayout.isRefreshing = true
 
-        getPresenter().fetchData()
+        presenter.fetchData()
     }
 
     override fun onMenuItemClick(item: MenuItem?): Boolean {
-       getPresenter().showPlayback()
+        presenter.showPlayback()
         return false
     }
 
